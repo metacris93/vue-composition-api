@@ -1,15 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <input type="date" v-model="birthday">
+  <ScriptSetup user="Cristian" email="cristian.pisco@outlook.com" />
+  <!-- <UserRepositories user="Cristian" email="cristian.pisco@outlook.com" /> -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import UserRepositories from './components/UserRepositories'
+import ScriptSetup from './components/ScriptSetup'
+import {provide, ref} from 'vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ScriptSetup
+    // UserRepositories
+  },
+  setup() {
+    const birthday = ref('')
+    provide("birthday", birthday)
+    return {
+      birthday
+    }
   }
 }
 </script>
